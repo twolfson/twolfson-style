@@ -21,19 +21,22 @@
       "url": "https://github.com/twolfson/twolfson-style/blob/master/UNLICENSE"
     }
   ],
+  "bin": {
+    "twolfson-style": "bin/twolfson-style"
+  },
   "main": "lib/twolfson-style",
   "engines": {
     "node": ">= 0.8.0"
   },
   "scripts": {
-    "test": "mocha"
+    "lint": "jshint bin/ lib/ test/ && jscs bin/ lib/ test/",
+    "test": "npm run lint && mocha"
   },
   "dependencies": {},
   "devDependencies": {
-    "mocha": "~1.11.0",
-    "grunt": "~0.4.1",
-    "grunt-contrib-jshint": "~0.6.0",
-    "grunt-contrib-watch": "~0.4.0"
+    "jscs": "~1.7.3",
+    "jshint": "~2.5.10",
+    "mocha": "~1.11.0"
   },
   "keywords": [
     "twolfson",
