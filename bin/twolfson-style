@@ -13,8 +13,8 @@ program
     dir = dir || process.cwd();
 
     // Install to the directory
-    twolfsonStyle.install(dir);
-    // TODO: Do we need to exit?
+    // DEV: An exit will occur automatically
+    twolfsonStyle.installSync(dir);
   });
 program.name = 'twolfson-style';
 

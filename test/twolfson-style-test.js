@@ -18,8 +18,7 @@ var testUtils = {
     });
 
     // Navigate to our new directory
-    before(function () {
-      console.log(this.dirpath);
+    before(function moveFn () {
       this.oldDir = process.cwd();
       process.chdir(this.dirpath);
     });
@@ -68,7 +67,7 @@ describe('twolfson-style', function () {
       assert.strictEqual(actualFile, expectedFile);
     });
 
-    it.skip('added our .jshintrc file', function () {
+    it('added our .jshintrc file', function () {
       var actualFile = fs.readFileSync(this.dirpath + '/.jshintrc', 'utf8');
       var expectedFile = fs.readFileSync(__dirname + '/expected-files/node/.jshintrc', 'utf8');
       assert.strictEqual(actualFile, expectedFile);
