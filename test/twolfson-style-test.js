@@ -33,12 +33,13 @@ var testUtils = {
   },
   exec: function (cmd, options) {
     // Run exec and save results
-    before(function execFn () {
+    before(function execFn (done) {
       var that = this;
       exec(cmd, options, function handleExec (err, stdout, stderr) {
         that.err = err;
         that.stdout = stdout;
         that.stderr = stderr;
+        done();
       });
     });
 
@@ -55,7 +56,7 @@ var testUtils = {
 describe('twolfson-style', function () {
   describe('installing into a directory', function () {
     testUtils.moveToTmpDir();
-    testUtils.exec(quote([__dirname + '/../bin/twolfson-style', 'install']));
+    testUtils.exec(quote(['node', __dirname + '/../bin/twolfson-style', 'install']));
 
     it('had no errors', function () {
       assert.strictEqual(this.err, null);

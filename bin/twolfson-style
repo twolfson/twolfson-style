@@ -17,3 +17,6 @@ program
     // TODO: Do we need to exit?
   });
 program.name = 'twolfson-style';
+
+// Process the arguments
+program.parse(process.argv);
