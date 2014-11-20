@@ -32,7 +32,9 @@
     "lint": "jshint bin/ lib/ test/ && jscs bin/ lib/ test/",
     "test": "npm run lint && mocha"
   },
-  "dependencies": {},
+  "dependencies": {
+    "commander": "~2.5.0"
+  },
   "devDependencies": {
     "jscs": "~1.7.3",
     "jshint": "~2.5.10",
