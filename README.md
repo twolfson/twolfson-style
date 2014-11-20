@@ -4,7 +4,7 @@ Lint and style configurations for [@twolfson][]
 
 This was built to create a common versioned location for [@twolfson's][@twolfson] style choices.
 
-Currently, we are leveraging [`jscs`][], a tool built exclusively for verifying consistent style, and [`jshint`][], a tool that performs both linting and style checking.
+Currently, we are leveraging [`jscs`][], a tool for verifying consistent style, and [`jshint`][], a tool that performs both linting and style checking.
 
 [@twolfson]: http://github.com/twolfson/
 [`jscs`]: https://github.com/jscs-dev/node-jscs
