@@ -45,7 +45,7 @@ $ bin/twolfson-style --help
 
   Commands:
 
-    install [dir]  undefined
+    install [dir]  Install style `rc` configuration files to `dir` or the current directory
 
   Options:
 
@@ -53,6 +53,11 @@ $ bin/twolfson-style --help
     -V, --version  output the version number
 
 ```
+
+#### `install [dir]`
+The `install` command copies over the `.jscsrc` and `.jshintrc` files to a specified directory, `dir`, or the current working directory, `process.cwd()`.
+
+Currently, we only provide `node` styles but in the future, we are considering adding `--env browser` to alter the styles for browser linting.
 
 ### Library versions
 The supported [`jscs`][] and [`jshint`][] versions are the same as this package's [`package.json`][].
