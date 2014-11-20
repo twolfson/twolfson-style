@@ -6,8 +6,8 @@ Lint and style configurations for @twolfson
 Install the module with: `npm install twolfson-style`
 
 ```js
-var twolfson_style = require('twolfson-style');
-twolfson_style.awesome(); // "awesome"
+var twolfsonStyle = require('twolfson-style');
+twolfsonStyle(); // 'awesome'
 ```
 
 ## Documentation

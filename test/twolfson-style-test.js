@@ -1,8 +1,10 @@
+// Load in dependencies
 var assert = require('assert');
 var twolfsonStyle = require('../');
 
+// Start our tests
 describe('twolfson-style', function () {
-  it('exports a function', function () {
-    assert.strictEqual(typeof twolfsonStyle, 'function');
+  it('returns awesome', function () {
+    assert.strictEqual(twolfsonStyle(), 'awesome');
   });
 });
