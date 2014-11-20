@@ -8,6 +8,7 @@ var twolfsonStyle = require('../');
 program
   .version(pkg.version)
   .command('install [dir]')
+  .description('Install style `rc` configuration files to `dir` or the current directory')
   .action(function install (dir) {
     // Fallback directory to cwd
     dir = dir || process.cwd();

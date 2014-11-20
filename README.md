@@ -36,9 +36,30 @@ These files can be integrated with [`jscs`][] and [`jshint`][] respectively. A c
 
 ## Documentation
 ### CLI
+`twolfson-style` installs a `twolfson-style` executable:
+
+```bash
+$ bin/twolfson-style --help
+
+  Usage: twolfson-style [options] [command]
+
+  Commands:
+
+    install [dir]  undefined
+
+  Options:
+
+    -h, --help     output usage information
+    -V, --version  output the version number
+
+```
 
 ### Library versions
-We use the same
+The supported [`jscs`][] and [`jshint`][] versions are the same as this package's [`package.json`][].
+
+[`package.json`][]
+
+[`package.json`]: package.json
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/gruntjs/grunt) and test via `npm test`.
