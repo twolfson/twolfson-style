@@ -4,7 +4,6 @@ var fs = require('fs');
 var exec = require('child_process').exec;
 var quote = require('shell-quote').quote;
 var tmp = require('tmp');
-var twolfsonStyle = require('../');
 
 // Define test utilities
 var testUtils = {
@@ -62,8 +61,10 @@ describe('twolfson-style', function () {
       assert.strictEqual(this.err, null);
     });
 
-    it('adds our .jshintrc and .jscsrc files', function () {
-      assert.strictEqual(twolfsonStyle(), 'awesome');
+    it('added our .jshintrc file', function () {
+      var actualFile = fs.readFileSync(this.dirpath + '/.jscsrc', 'utf8');
+      var expectedFile = fs.readFileSync(__dirname + '/expected-files/node/.jscsrc', 'utf8');
+      assert.strictEqual(actualFile, expectedFile);
     });
   });
 });
