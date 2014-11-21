@@ -1,7 +1,7 @@
 {
   "name": "twolfson-style",
   "description": "Lint and style configurations for @twolfson",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "homepage": "https://github.com/twolfson/twolfson-style",
   "author": {
     "name": "Todd Wolfson",
