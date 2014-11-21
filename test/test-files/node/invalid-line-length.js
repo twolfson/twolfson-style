@@ -3,4 +3,4 @@ exports.expected = /Line must be at most 120 characters/i;
 
 // We don't allow statements over 120 characters
 var statement = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
-void statement;
+void statement; // DEV: This is to silence variables not being used
