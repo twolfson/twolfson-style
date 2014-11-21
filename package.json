@@ -29,6 +29,7 @@
     "node": ">= 0.8.0"
   },
   "scripts": {
+    "pretest": "./bin/twolfson-style install",
     "lint": "jshint bin/ lib/ test/ && jscs bin/ lib/ test/",
     "test": "npm run lint && mocha"
   },
