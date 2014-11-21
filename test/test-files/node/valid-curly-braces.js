@@ -1,9 +1,9 @@
 // We allow `case` and `default` statements to not need curly braces
 switch ('hello') {
   case 'world':
-    console.log('woot');
+    void 'woot';
     break;
   default:
-    console.log('dopplewoot');
+    void 'dopplewoot';
     break;
 }

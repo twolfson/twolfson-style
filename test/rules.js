@@ -41,7 +41,6 @@ glob.sync('node/invalid-*.js', {cwd: __dirname + '/test-files/'}).forEach(functi
       testUtils.lint(filepath);
 
       it('receives its expected error', function () {
-        console.log(this.stdout);
         var expected = require(filepath).expected;
         expect(this.err).to.not.equal(null);
         expect(this.stdout).to.match(expected);
@@ -57,7 +56,6 @@ glob.sync('node/valid-*.js', {cwd: __dirname + '/test-files/'}).forEach(function
       testUtils.lint(filepath);
 
       it('has no errors', function () {
-        console.log(this.err, this.stdout);
         expect(this.err).to.equal(null);
       });
     });
