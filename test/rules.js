@@ -43,7 +43,7 @@ glob.sync('node/invalid-*.js', {cwd: __dirname + '/test-files/'}).forEach(functi
       it('receives its expected error', function () {
         var expected = require(filepath).expected;
         expect(this.err).to.not.equal(null);
-        expect(this.stderr).to.match(expected);
+        expect(this.stdout).to.match(expected);
       });
     });
   });
