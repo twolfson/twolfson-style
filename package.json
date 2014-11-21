@@ -30,7 +30,7 @@
   },
   "scripts": {
     "pretest": "./bin/twolfson-style install",
-    "lint": "jshint bin/ lib/ test/ && jscs bin/ lib/ test/",
+    "lint": "jshint bin/ lib/ test/*.js && jscs bin/ lib/ test/*.js",
     "test": "npm run lint && mocha"
   },
   "dependencies": {
