@@ -37,6 +37,8 @@
     "commander": "~2.5.0"
   },
   "devDependencies": {
+    "chai": "~1.10.0",
+    "glob": "~4.2.1",
     "jscs": "~1.7.3",
     "jshint": "~2.5.10",
     "mocha": "~1.11.0",

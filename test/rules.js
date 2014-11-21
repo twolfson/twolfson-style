@@ -1,6 +1,7 @@
 // Load in dependencies
-var assert = require('assert');
 var exec = require('child_process').exec;
+var expect = require('chai').expect;
+var glob = require('glob');
 var quote = require('shell-quote').quote;
 
 // Define test utilities
@@ -30,3 +31,19 @@ var testUtils = {
     });
   }
 };
+
+// Start our tests
+glob.sync('node/invalid-*.js', {cwd: __dirname + '/test-files/'}).forEach(function checkInvalidFile (_filepath) {
+  var filepath = __dirname + '/test-files/' + _filepath;
+  describe('An invalid file "' + _filepath + '"', function () {
+    describe('when linted', function () {
+      testUtils.lint(filepath);
+
+      it('receives its expected error', function () {
+        var expected = require(filepath).expected;
+        expect(this.err).to.not.equal(null);
+        expect(this.stderr).to.match(expected);
+      });
+    });
+  });
+});
