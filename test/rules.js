@@ -10,8 +10,9 @@ var testUtils = {
     // Lint our file with both JSCS and JSHint
     before(function lintFn (done) {
       // Generate our command
-      var subcmd = quote(['jshint', filepath, '&&', 'jscs', filepath]);
-      var cmd = quote(['sh', '-c', subcmd]);
+      var jshintCmd = require.resolve('jshint/bin/jshint');
+      var jscsCmd = require.resolve('jscs/bin/jscs');
+      var cmd = quote(['bash', '-c', [jshintCmd, filepath, '&&', jscsCmd, filepath].join(' ')]);
 
       // Run the command and save our results
       var that = this;
