@@ -1,4 +1,6 @@
 # twolfson-style changelog
+1.3.0 - Allow for unused function parameters but still require usage of `vars`
+
 1.2.0 - Adjusted rule expectations and started adding test cases for our style
 
 1.1.0 - Generating rc files from `.js` files
