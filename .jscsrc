@@ -1,15 +1,5 @@
 {
-  "requireCurlyBraces": [
-    "if",
-    "else",
-    "for",
-    "while",
-    "do",
-    "try",
-    "catch",
-    "finally",
-    "with"
-  ],
+  "requireCurlyBraces": true,
   "requireSpaceAfterKeywords": true,
   "requireSpaceBeforeBlockStatements": true,
   "requireSpacesInConditionalExpression": true,
