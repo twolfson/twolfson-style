@@ -1,4 +1,6 @@
 # twolfson-style changelog
+1.2.0 - Adjusted rule expectations and started adding test cases for our style
+
 1.1.0 - Generating rc files from `.js` files
 
 1.0.0 - Initial release
