@@ -76,7 +76,7 @@ ls .js*
 # .jscsrc  .jshintrc
 ```
 
-#### `precheck [dir]`
+#### `precheck <paths...>`
 The `precheck` command checks for critical lint errors (e.g. using an undeclared variable).
 
 ```bash
