@@ -22,9 +22,9 @@ program
   });
 
 program
-  .command('precheck <path> [path] ...')
+  .command('precheck <path...>')
   .description('Run critical style checks (e.g. using an undefined variable)')
-  .action(function prechceck (/*path, path, ...*/) {
+  .action(function prechceck (pathArr) {
     console.log(arguments);
   });
 
