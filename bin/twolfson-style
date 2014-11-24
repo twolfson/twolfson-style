@@ -23,7 +23,7 @@ program
 
 program
   .command('precheck <path...>')
-  .description('Run critical style checks (e.g. using an undefined variable)')
+  .description('Run critical style checks (e.g. using an undeclared variable)')
   .action(function prechceck (pathArr) {
     twolfsonStyle.precheck(pathArr, {
       stdout: process.stdout,

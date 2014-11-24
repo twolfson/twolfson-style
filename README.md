@@ -34,6 +34,13 @@ These files can be integrated with [`jscs`][] and [`jshint`][] respectively. A c
 
 [`npm-run-script`]: https://www.npmjs.org/doc/cli/npm-run-script.html
 
+We provide a precheck utility to prevent critical JS errors before running tests.
+
+```js
+// Verifies only critical lint errors (e.g. using an undeclared variable)
+"precheck": "twolfson-style precheck lib/ test/"
+```
+
 ## Documentation
 ### CLI
 `twolfson-style` installs a `twolfson-style` executable:
@@ -45,7 +52,8 @@ $ bin/twolfson-style --help
 
   Commands:
 
-    install [dir]  Install style `rc` configuration files to `dir` or the current directory
+    install [dir]       Install style `rc` configuration files to `dir` or the current directory
+    precheck <path...>  Run critical style checks (e.g. using an undeclared variable)
 
   Options:
 
@@ -58,6 +66,23 @@ $ bin/twolfson-style --help
 The `install` command copies over the `.jscsrc` and `.jshintrc` files to a specified directory, `dir`, or the current working directory, `process.cwd()`.
 
 Currently, we only provide `node` styles but in the future, we are considering adding `--env browser` to alter the styles for browser linting.
+
+```bash
+# Copy over `rc` files
+twolfson-style install
+
+# List our new files
+ls .js*
+# .jscsrc  .jshintrc
+```
+
+#### `precheck [dir]`
+The `precheck` command checks for critical lint errors (e.g. using an undeclared variable).
+
+```bash
+twolfson-style precheck lib/invalid-file.js
+
+```
 
 ### Library versions
 The supported [`jscs`][] and [`jshint`][] versions are the same as this package's [`package.json`][].
