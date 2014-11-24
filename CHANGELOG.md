@@ -1,4 +1,6 @@
 # twolfson-style changelog
+1.5.0 - Added `lint` command
+
 1.4.4 - Updating docs for linting
 
 1.4.3 - Fixed up bad documentation for `precheck`
