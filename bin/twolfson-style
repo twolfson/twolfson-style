@@ -26,11 +26,18 @@ program
   .description('Run critical style checks (e.g. using an undefined variable)')
   .action(function prechceck (pathArr) {
     twolfsonStyle.precheck(pathArr, {
+      stdout: process.stdout,
       stderr: process.stderr
     }, function handleEnd (err) {
-      // If there was an error, throw it
+      // If there was an error
       if (err) {
-        throw err;
+        // If there is a code, exit with its code
+        if (err.code) {
+          process.exit(err.code);
+        // Otherwise, throw it
+        } else {
+          throw err;
+        }
       }
     });
   });
