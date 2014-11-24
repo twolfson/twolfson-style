@@ -1,4 +1,6 @@
 # twolfson-style changelog
+1.6.0 - Allow non-dot notation in `precheck`
+
 1.5.0 - Added `lint` command
 
 1.4.4 - Updating docs for linting
