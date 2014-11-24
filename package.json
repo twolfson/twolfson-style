@@ -31,7 +31,7 @@
   "scripts": {
     "pretest": "./bin/twolfson-style install",
     "lint": "jshint bin/ lib/ test/*.js && jscs bin/ lib/ test/*.js",
-    "test": "npm run lint && mocha"
+    "test": "./bin/twolfson-style precheck && mocha && npm run lint"
   },
   "dependencies": {
     "commander": "~2.5.0",

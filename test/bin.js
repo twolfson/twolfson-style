@@ -57,20 +57,44 @@ describe('twolfson-style', function () {
     testUtils.moveToTmpDir();
     testUtils.exec(quote(['node', __dirname + '/../bin/twolfson-style', 'install']));
 
-    it('had no errors', function () {
+    it('has no errors', function () {
       assert.strictEqual(this.err, null);
     });
 
-    it('added our .jscsrc file', function () {
+    it('adds our .jscsrc file', function () {
       var actualFile = fs.readFileSync(this.dirpath + '/.jscsrc', 'utf8');
       var expectedFile = fs.readFileSync(__dirname + '/expected-files/node/.jscsrc', 'utf8');
       assert.deepEqual(JSON.parse(actualFile), JSON.parse(expectedFile));
     });
 
-    it('added our .jshintrc file', function () {
+    it('adds our .jshintrc file', function () {
       var actualFile = fs.readFileSync(this.dirpath + '/.jshintrc', 'utf8');
       var expectedFile = fs.readFileSync(__dirname + '/expected-files/node/.jshintrc', 'utf8');
       assert.deepEqual(JSON.parse(actualFile), JSON.parse(expectedFile));
+    });
+  });
+});
+
+describe('twolfson-style', function () {
+  describe('prechecking a file with a critical issue', function () {
+    var filepath = __dirname + '/test-files/node/invalid-unused.js';
+    testUtils.exec(quote([__dirname + '/../bin/twolfson-style', 'precheck', filepath]));
+
+    it('has an error errors', function () {
+      assert.notEqual(this.err, null);
+    });
+
+    it.skip('complains critical issue', function () {
+      var expectedError = require(filepath).expected;
+      // assert.deepEqual(JSON.parse(actualFile), JSON.parse(expectedFile));
+    });
+  });
+
+  describe.skip('prechecking a file with a stylistic issue', function () {
+    testUtils.exec(quote([__dirname + '/../bin/twolfson-style', 'precheck', __dirname + '/test-files/node/invalid-unused.js']));
+
+    it('has no errors', function () {
+      assert.strictEqual(this.err, null);
     });
   });
 });
