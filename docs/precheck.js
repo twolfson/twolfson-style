@@ -1,1 +1,1 @@
-iWasNeverUndeclared;
+console.log(iWasNeverUndeclared);

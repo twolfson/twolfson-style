@@ -80,10 +80,10 @@ ls .js*
 The `precheck` command checks for critical lint errors (e.g. using an undeclared variable).
 
 ```bash
-twolfson-style precheck lib/undeclared-variable.js
-# docs/precheck.js: line 1, col 1, 'iWasNeverUndeclared' is not defined.
+twolfson-style precheck docs/precheck.js
+# docs/precheck.js: line 1, col 13, 'iWasNeverUndeclared' is not defined.
 #
-# 1 errors
+# 1 error
 ```
 
 ### Library versions
