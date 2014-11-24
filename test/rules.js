@@ -6,14 +6,9 @@ var quote = require('shell-quote').quote;
 
 // Define test utilities
 var testUtils = {
-  precheck: function (filepath) {
-    // Lint our file with both JSCS and JSHint
-    before(function lintFn (done) {
-      // Generate our command
-      var jshintCmd = require.resolve('jshint/bin/jshint');
-      var cmd = quote([jshintCmd, '--config', __dirname + '/../lib/rc/jshint-critical.json', filepath]);
-
-      // Run the command and save our results
+  exec: function (cmd) {
+    // Run the command and save our results
+    before(function execCmd (done) {
       var that = this;
       exec(cmd, function handleExec (err, stdout, stderr) {
         that.err = err;
@@ -30,30 +25,18 @@ var testUtils = {
       delete this.stderr;
     });
   },
+  precheck: function (filepath) {
+    // Generate our command
+    var jshintCmd = require.resolve('jshint/bin/jshint');
+    var cmd = quote([jshintCmd, '--config', __dirname + '/../lib/rc/jshint-critical.json', filepath]);
+    testUtils.exec(cmd);
+  },
   lint: function (filepath) {
     // Lint our file with both JSCS and JSHint
-    before(function lintFn (done) {
-      // Generate our command
-      var jshintCmd = require.resolve('jshint/bin/jshint');
-      var jscsCmd = require.resolve('jscs/bin/jscs');
-      var cmd = quote(['bash', '-c', [jshintCmd, filepath, '&&', jscsCmd, filepath].join(' ')]);
-
-      // Run the command and save our results
-      var that = this;
-      exec(cmd, function handleExec (err, stdout, stderr) {
-        that.err = err;
-        that.stdout = stdout;
-        that.stderr = stderr;
-        done();
-      });
-    });
-
-    // Clean up results
-    after(function cleanup () {
-      delete this.err;
-      delete this.stdout;
-      delete this.stderr;
-    });
+    var jshintCmd = require.resolve('jshint/bin/jshint');
+    var jscsCmd = require.resolve('jscs/bin/jscs');
+    var cmd = quote(['bash', '-c', [jshintCmd, filepath, '&&', jscsCmd, filepath].join(' ')]);
+    testUtils.exec(cmd);
   }
 };
 
