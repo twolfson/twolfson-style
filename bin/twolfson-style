@@ -5,8 +5,11 @@ var pkg = require('../package.json');
 var twolfsonStyle = require('../');
 
 // Define our CLI
+program.version(pkg.version);
+program.name = 'twolfson-style';
+
+// Define CLI commands
 program
-  .version(pkg.version)
   .command('install [dir]')
   .description('Install style `rc` configuration files to `dir` or the current directory')
   .action(function install (dir) {
@@ -17,7 +20,13 @@ program
     // DEV: An exit will occur automatically
     twolfsonStyle.installSync(dir);
   });
-program.name = 'twolfson-style';
+
+program
+  .command('precheck <path> [path] ...')
+  .description('Run critical style checks (e.g. using an undefined variable)')
+  .action(function prechceck (/*path, path, ...*/) {
+    console.log(arguments);
+  });
 
 // Process the arguments
 program.parse(process.argv);
