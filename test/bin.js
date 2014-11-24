@@ -91,7 +91,7 @@ describe('twolfson-style', function () {
   });
 
   describe('prechecking a file with a stylistic issue', function () {
-    var filepath = __dirname + '/test-files/node/invalid-line-length.js';
+    var filepath = __dirname + '/test-files/node/invalid-curly-braces.js';
     testUtils.exec(quote([__dirname + '/../bin/twolfson-style', 'precheck', filepath]));
 
     it('has no errors', function () {
