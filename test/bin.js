@@ -64,13 +64,13 @@ describe('twolfson-style', function () {
     it('added our .jscsrc file', function () {
       var actualFile = fs.readFileSync(this.dirpath + '/.jscsrc', 'utf8');
       var expectedFile = fs.readFileSync(__dirname + '/expected-files/node/.jscsrc', 'utf8');
-      assert.strictEqual(actualFile, expectedFile);
+      assert.deepEqual(JSON.parse(actualFile), JSON.parse(expectedFile));
     });
 
     it('added our .jshintrc file', function () {
       var actualFile = fs.readFileSync(this.dirpath + '/.jshintrc', 'utf8');
       var expectedFile = fs.readFileSync(__dirname + '/expected-files/node/.jshintrc', 'utf8');
-      assert.strictEqual(actualFile, expectedFile);
+      assert.deepEqual(JSON.parse(actualFile), JSON.parse(expectedFile));
     });
   });
 });
