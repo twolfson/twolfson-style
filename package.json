@@ -29,6 +29,8 @@
     "node": ">= 0.8.0"
   },
   "scripts": {
+    "docs-precheck": "./bin/twolfson-style precheck docs/precheck.js",
+    "docs-lint": "./bin/twolfson-style lint docs/lint.js",
     "pretest": "./bin/twolfson-style install",
     "precheck": "./bin/twolfson-style precheck bin/ lib/ test/*.js",
     "lint": "./bin/twolfson-style lint bin/ lib/ test/*.js",

@@ -89,6 +89,20 @@ twolfson-style precheck docs/precheck.js
 # 1 error
 ```
 
+#### `lint <paths...>`
+The `lint` command runs `jshint` and `jshint` against `paths`.
+
+We will use the `jshint` and `jscs` must be provided on the `$PATH`.
+
+**`twolfson-style` does not provide `jshint` and `jscs` dependencies.** If we were to, it would lead to slower releases and annoying one-off upgrades.
+
+```bash
+twolfson-style lint docs/lint.js
+# docs/lint.js: line 2, col 3, Expected '{' and instead saw 'void'.
+#
+# 1 error
+```
+
 ### Library versions
 The supported [`jscs`][] and [`jshint`][] versions are the same as this package's [`package.json`][].
 
