@@ -49,7 +49,7 @@ We provide a precheck utility to prevent critical JS errors before running tests
 `twolfson-style` installs a `twolfson-style` executable:
 
 ```bash
-$ bin/twolfson-style --help
+$ ./bin/twolfson-style --help
 
   Usage: twolfson-style [options] [command]
 
@@ -57,6 +57,7 @@ $ bin/twolfson-style --help
 
     install [dir]       Install style `rc` configuration files to `dir` or the current directory
     precheck <path...>  Run critical style checks (e.g. using an undeclared variable)
+    lint <path...>      Run all of your style checks (Note: you must provide `jshint` and `jscs` on your `$PATH`)
 
   Options:
 

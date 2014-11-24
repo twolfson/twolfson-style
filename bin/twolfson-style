@@ -46,7 +46,7 @@ program
 
 program
   .command('lint <path...>')
-  .description('Run all of your style checks (Note: you must provide `jshint` and `jscs` on your `$PATH`')
+  .description('Run all of your style checks (Note: you must provide `jshint` and `jscs` on your `$PATH`)')
   .action(function lint (pathArr) {
     twolfsonStyle.lint(pathArr, {
       stdout: process.stdout,
