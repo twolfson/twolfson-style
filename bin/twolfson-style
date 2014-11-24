@@ -21,25 +21,37 @@ program
     twolfsonStyle.installSync(dir);
   });
 
+function handleExit(err) {
+  // If there was an error
+  if (err) {
+    // If there is a code, exit with its code
+    if (err.code) {
+      process.exit(err.code);
+    // Otherwise, throw it
+    } else {
+      throw err;
+    }
+  }
+}
+
 program
   .command('precheck <path...>')
   .description('Run critical style checks (e.g. using an undeclared variable)')
-  .action(function prechceck (pathArr) {
+  .action(function precheck (pathArr) {
     twolfsonStyle.precheck(pathArr, {
       stdout: process.stdout,
       stderr: process.stderr
-    }, function handleEnd (err) {
-      // If there was an error
-      if (err) {
-        // If there is a code, exit with its code
-        if (err.code) {
-          process.exit(err.code);
-        // Otherwise, throw it
-        } else {
-          throw err;
-        }
-      }
-    });
+    }, handleExit);
+  });
+
+program
+  .command('lint <path...>')
+  .description('Run all of your style checks (Note: you must provide `jshint` and `jscs` on your `$PATH`')
+  .action(function lint (pathArr) {
+    twolfsonStyle.lint(pathArr, {
+      stdout: process.stdout,
+      stderr: process.stderr
+    }, handleExit);
   });
 
 // Process the arguments
