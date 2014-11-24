@@ -30,8 +30,8 @@
   },
   "scripts": {
     "pretest": "./bin/twolfson-style install",
-    "precheck": "./bin/twolfson-style bin/ lib/ test/*.js",
-    "lint": "jshint bin/ lib/ test/*.js && jscs bin/ lib/ test/*.js",
+    "precheck": "./bin/twolfson-style precheck bin/ lib/ test/*.js",
+    "lint": "./bin/twolfson-style lint bin/ lib/ test/*.js",
     "test": "npm run precheck && mocha && npm run lint"
   },
   "dependencies": {
