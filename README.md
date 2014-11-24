@@ -30,6 +30,9 @@ These files can be integrated with [`jscs`][] and [`jshint`][] respectively. A c
 ```js
 // DEV: By providing a `lib/` instead of `lib/*.js`, both `jscs` and `jshint` recurse the directory (e.g. `lib/hello/world.js`)
 "lint": "jshint lib/ test/ && jscs lib/ test/"
+
+// Alternatively, we provide a sugar command to do this:
+"lint": "twolfson-style lint lib/ test/"
 ```
 
 [`npm-run-script`]: https://www.npmjs.org/doc/cli/npm-run-script.html
