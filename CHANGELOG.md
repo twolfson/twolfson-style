@@ -1,4 +1,6 @@
 # twolfson-style changelog
+1.4.1 - Fixed up `precheck` command's config
+
 1.4.0 - Added `precheck` command to allow for critical JS checking
 
 1.3.0 - Allow for unused function parameters but still require usage of `vars`
