@@ -36,13 +36,13 @@
   },
   "dependencies": {
     "commander": "~2.5.0",
-    "jshint": "~2.5.10",
     "obj-extend": "~0.1.0"
   },
   "devDependencies": {
     "chai": "~1.10.0",
     "glob": "~4.2.1",
     "jscs": "~1.7.3",
+    "jshint": "~2.5.10",
     "mocha": "~1.11.0",
     "shell-quote": "~1.4.2",
     "tmp": "0.0.24"
