@@ -28,7 +28,7 @@ var testUtils = {
   precheck: function (filepath) {
     // Generate our command
     var jshintCmd = require.resolve('jshint/bin/jshint');
-    var cmd = quote([jshintCmd, '--config', __dirname + '/../lib/rc/jshint-critical.json', filepath]);
+    var cmd = quote([jshintCmd, '--config', __dirname + '/../lib/rc/jshintrc-critical.json', filepath]);
     testUtils.exec(cmd);
   },
   lint: function (filepath) {
