@@ -84,14 +84,15 @@ describe('twolfson-style', function () {
       assert.notEqual(this.err, null);
     });
 
-    it.skip('complains critical issue', function () {
+    it('complains critical issue', function () {
       var expectedError = require(filepath).expected;
       assert(this.stdout.match(expectedError));
     });
   });
 
-  describe.skip('prechecking a file with a stylistic issue', function () {
-    testUtils.exec(quote([__dirname + '/../bin/twolfson-style', 'precheck', __dirname + '/test-files/node/invalid-unused.js']));
+  describe('prechecking a file with a stylistic issue', function () {
+    var filepath = __dirname + '/test-files/node/invalid-line-length.js';
+    testUtils.exec(quote([__dirname + '/../bin/twolfson-style', 'precheck', filepath]));
 
     it('has no errors', function () {
       assert.strictEqual(this.err, null);
