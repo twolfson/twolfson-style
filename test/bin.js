@@ -86,7 +86,7 @@ describe('twolfson-style', function () {
 
     it.skip('complains critical issue', function () {
       var expectedError = require(filepath).expected;
-      // assert.deepEqual(JSON.parse(actualFile), JSON.parse(expectedFile));
+      assert(this.stdout.match(expectedError));
     });
   });
 
