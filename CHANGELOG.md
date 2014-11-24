@@ -1,4 +1,6 @@
 # twolfson-style changelog
+1.4.3 - Fixed up bad documentation for `precheck`
+
 1.4.2 - Fixed `jshint` resolution in precheck
 
 1.4.1 - Fixed up `precheck` command's config
