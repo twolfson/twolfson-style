@@ -99,3 +99,13 @@ describe('twolfson-style', function () {
     });
   });
 });
+
+// Edge cases
+// DEV: For sanity, verify that our critical JSON and `jshint.critical` always line up
+describe('Our critical jshint config', function () {
+  it('is in sync with our source jshint config', function () {
+    var actualJson = require(__dirname + '/../lib/rc/jshintrc-critical.json');
+    var expectedJson = require(__dirname + '/../lib/rc/jshintrc.js').critical;
+    assert.deepEqual(actualJson, expectedJson);
+  });
+});
