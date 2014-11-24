@@ -95,7 +95,6 @@ describe('twolfson-style', function () {
     testUtils.exec(quote([__dirname + '/../bin/twolfson-style', 'precheck', filepath]));
 
     it('has no errors', function () {
-      console.log(this.stdout);
       assert.strictEqual(this.err, null);
     });
   });
