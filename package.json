@@ -34,9 +34,11 @@
     "pretest": "./bin/twolfson-style install",
     "pretest-windows": ".\\bin\\twolfson-style install",
     "precheck": "./bin/twolfson-style precheck bin/ lib/ test/*.js",
+    "precheck-windows": ".\\bin\\twolfson-style precheck bin\\ lib\\ test\\bin.js test\\rules.js",
     "lint": "./bin/twolfson-style lint bin/ lib/ test/*.js",
+    "lint-windows": ".\\bin\\twolfson-style lint bin\\ lib\\ test\\bin.js test\\rules.js",
     "test": "npm run precheck && mocha && npm run lint",
-    "test-windows": "mocha --bail --timeout 10000"
+    "test-windows": "npm run precheck-windows && mocha --timeout 10000 && npm run lint-windows"
   },
   "dependencies": {
     "commander": "~2.5.0",
