@@ -11,11 +11,10 @@ var testUtils = {
     // Run the command and save our results
     before(function execCmd (done) {
       var that = this;
-      console.log(cmd);
       exec(cmd, function handleExec (err, stdout, stderr) {
-        that.err = err;
-        that.stdout = stdout;
-        that.stderr = stderr;
+        that.err = that.err || err;
+        that.stdout = (that.stdout || '') + stdout;
+        that.stderr = (that.stdout || '') + stderr;
         done();
       });
     });
@@ -31,15 +30,14 @@ var testUtils = {
     // Generate our command
     var jshintCmd = require.resolve('jshint/bin/jshint');
     var cmd = quote([jshintCmd, '--config', path.join(__dirname, '/../lib/rc/jshintrc-critical.json'), filepath]);
-    console.log(path.join(__dirname, '/../lib/rc/jshintrc-critical.json'), filepath);
     testUtils.exec(cmd);
   },
   lint: function (filepath) {
     // Lint our file with both JSCS and JSHint
     var jshintCmd = require.resolve('jshint/bin/jshint');
     var jscsCmd = require.resolve('jscs/bin/jscs');
-    var cmd = quote(['cmd.exe', '/C', 'node.exe', jshintCmd, filepath, '&&', 'node.exe', jscsCmd, filepath]);
-    testUtils.exec(cmd);
+    testUtils.exec(quote(['node.exe', jshintCmd, filepath]));
+    testUtils.exec(quote(['node.exe', jscsCmd, filepath]));
   }
 };
 
