@@ -2,6 +2,7 @@
 var exec = require('child_process').exec;
 var expect = require('chai').expect;
 var glob = require('glob');
+var path = require('path');
 var quote = require('shell-quote').quote;
 
 // Define test utilities
@@ -28,7 +29,8 @@ var testUtils = {
   precheck: function (filepath) {
     // Generate our command
     var jshintCmd = require.resolve('jshint/bin/jshint');
-    var cmd = quote([jshintCmd, '--config', __dirname + '/../lib/rc/jshintrc-critical.json', filepath]);
+    var cmd = quote([jshintCmd, '--config', path.join(__dirname, '/../lib/rc/jshintrc-critical.json'), filepath]);
+    console.log(path.join(__dirname, '/../lib/rc/jshintrc-critical.json'), filepath);
     testUtils.exec(cmd);
   },
   lint: function (filepath) {
@@ -42,7 +44,7 @@ var testUtils = {
 
 // Start our tests
 glob.sync('node/invalid-*.js', {cwd: __dirname + '/test-files/'}).forEach(function checkInvalidFile (_filepath) {
-  var filepath = __dirname + '/test-files/' + _filepath;
+  var filepath = path.join(__dirname, 'test-files', _filepath);
   describe('An invalid file "' + _filepath + '"', function () {
     describe('when linted', function () {
       testUtils.lint(filepath);
@@ -57,7 +59,7 @@ glob.sync('node/invalid-*.js', {cwd: __dirname + '/test-files/'}).forEach(functi
 });
 
 glob.sync('node/valid-*.js', {cwd: __dirname + '/test-files/'}).forEach(function checkValidFile (_filepath) {
-  var filepath = __dirname + '/test-files/' + _filepath;
+  var filepath = path.join(__dirname, 'test-files', _filepath);
   describe('A valid file "' + _filepath + '"', function () {
     describe('when linted', function () {
       testUtils.lint(filepath);
@@ -70,7 +72,7 @@ glob.sync('node/valid-*.js', {cwd: __dirname + '/test-files/'}).forEach(function
 });
 
 glob.sync('node/precheck-*.js', {cwd: __dirname + '/test-files/'}).forEach(function checkInvalidFile (_filepath) {
-  var filepath = __dirname + '/test-files/' + _filepath;
+  var filepath = path.join(__dirname, 'test-files', _filepath);
   describe('A precheck valid file "' + _filepath + '"', function () {
     describe('when prechecked', function () {
       testUtils.precheck(filepath);
