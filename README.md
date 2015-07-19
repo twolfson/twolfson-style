@@ -1,4 +1,4 @@
-# twolfson-style [![Build status](https://travis-ci.org/twolfson/twolfson-style.png?branch=master)](https://travis-ci.org/twolfson/twolfson-style)
+# twolfson-style [![Build status](https://travis-ci.org/twolfson/twolfson-style.png?branch=master)](https://travis-ci.org/twolfson/twolfson-style) [![Build status](https://ci.appveyor.com/api/projects/status/0rghihbrhwguis23/branch/master?svg=true)](https://ci.appveyor.com/project/twolfson/twolfson-style/branch/master)
 
 Lint and style configurations for [@twolfson][]
 
