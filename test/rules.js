@@ -11,6 +11,7 @@ var testUtils = {
     // Run the command and save our results
     before(function execCmd (done) {
       var that = this;
+      console.log(cmd);
       exec(cmd, function handleExec (err, stdout, stderr) {
         that.err = err;
         that.stdout = stdout;
@@ -37,7 +38,7 @@ var testUtils = {
     // Lint our file with both JSCS and JSHint
     var jshintCmd = require.resolve('jshint/bin/jshint');
     var jscsCmd = require.resolve('jscs/bin/jscs');
-    var cmd = quote(['bash', '-c', [jshintCmd, filepath, '&&', jscsCmd, filepath].join(' ')]);
+    var cmd = quote(['cmd.exe', '/C', 'node.exe', jshintCmd, filepath, '&&', 'node.exe', jscsCmd, filepath]);
     testUtils.exec(cmd);
   }
 };

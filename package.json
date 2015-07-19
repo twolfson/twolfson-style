@@ -36,7 +36,7 @@
     "precheck": "./bin/twolfson-style precheck bin/ lib/ test/*.js",
     "lint": "./bin/twolfson-style lint bin/ lib/ test/*.js",
     "test": "npm run precheck && mocha && npm run lint",
-    "test-windows": "mocha"
+    "test-windows": "mocha --bail"
   },
   "dependencies": {
     "commander": "~2.5.0",
